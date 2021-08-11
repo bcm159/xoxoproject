@@ -1,0 +1,1253 @@
+@charset "utf-8";
+#wrap{
+  width: 100%;
+/*  min-width: 넘어가면 가로로 밑에 줄 생긴다*/
+  min-width: 1020px;
+}
+.container{
+  width: 1020px;
+  margin: auto;
+}
+/*.clear는 미리 만들어 가상의 clear쓴다.*/
+.clear{
+  clear:both;
+  line-height: 0;
+  overflow: hidden;
+}
+
+/*가상의 after쓴다.*/
+.clearfix::after{
+  content: '';
+  display:block;
+  clear:both;
+}
+/*header start*/
+header{}
+
+#h-top{
+/*  1)*/
+  background: #222;
+  color:#fff;
+  overflow: hidden;
+}
+
+ul.topnav{
+/*  2)*/
+  float:left;
+}
+ul.topnav li{
+/*  2-2) */
+  float:left;
+  padding: 1rem 0;
+}
+ul.topnav li a{}
+ul.topnav li::after{
+/*  2-3)*/
+  content:'';
+  display:inline-block;
+  width: 1px;
+  height: 10px;
+  background: #666;
+/*  이것을 통해서 글자와 글자 사이에 바가 생긴다.*/
+  margin: 0 1rem ; 
+}
+/*3)*/
+ul.topnav li:nth-child(6)::after{
+  display:none;
+}
+ul.topnav li:nth-child(1){
+/*  3-2)*/
+  padding-left: 1.5rem;
+  background: url("../images/home_icon.png")no-repeat left;
+}
+
+ul.topnav li:hover a{
+/*  4)*/
+  text-decoration: underline;
+}
+
+.snscover{
+/*  2-1)*/
+  float: right;
+}
+.snscover a{
+/*  5)그림이 들어와야한다. 즉 height이 있어야한다.*/
+  background: url("../images/sns_icon.png");
+/*  얘는 inline-block 이기 때문에 옆으로 준다.*/
+  float:left;
+  width: 28px;
+  height: 28px;
+  font-size: 0;
+  line-height: 0;
+  margin:6px 0 0 10px;
+  
+}
+/*5-2)*/
+.snscover a:nth-child(1){
+  background-position: 0px 0px;
+}
+.snscover a:nth-child(2){
+  background-position: -28px 0px;
+}
+.snscover a:nth-child(3){
+  background-position: -56px 0px;
+}
+.snscover a:nth-child(4){
+  background-position: -84px 0px;
+}
+
+/*5-3) hover effect*/
+.snscover a:nth-child(1):hover{
+  background-position: 0px -28px;
+}
+.snscover a:nth-child(2):hover{
+  background-position: -28px -28px;
+}
+.snscover a:nth-child(3):hover{
+  background-position: -56px -28px;
+}
+.snscover a:nth-child(4):hover{
+  background-position: -84px -28px;
+}
+
+/*#################################2############################*/
+#h-bot{
+/*  2)*/
+  border-bottom: 1px solid #dd1a32;
+/*  5-2)*/
+  position:relative;
+}
+
+#logo{
+/*  1)*/
+  float:left;
+/*  1-3)*/
+  margin: 1.2rem 0 ;
+}
+
+nav{
+/*  1-2)*/
+  float:right;
+}
+
+.mainmenu{
+/*  3)*/
+  float:left;
+/*  width: 85px;*/
+  margin-left: 6rem;
+}
+/*4)*/
+.mainmenu::after{
+  content:'';
+  display:block;
+  border-bottom: 3px solid #dd1a32;
+/*  처음에는 안보이게 했다가 커서 대면 보이게 하기위해 width를 0주는것*/
+  width: 0;
+  transition: 0.5s;
+}
+/*4-2)*/
+.mainmenu:hover::after{
+  width: 100%;
+}
+
+/*.mainmenu의 a 표현할때는 꺽세! 기억하기*/
+.mainmenu>a{
+/*  3-2)*/
+  display:block;
+/*  원래는 line-height: 을 82라 하지만 border-bottom에서 3을 빼서 79한다.*/
+  line-height: 79px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: center;
+}
+.submenu{
+/*  2-2) 주고 나중에 풀어준다. 9)다시 display none으로 건다.*/
+  display:none;
+/*  5)*/
+/*  위 b-top에다 position:relative 잡는다.*/
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 83px;
+  background: #fff;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
+  padding: 3rem 0;
+/*  8-3)*/
+  z-index: 999;
+}
+.submenu dl{
+/*  6)*/
+  float:left;
+  width: 160px;
+  
+}
+.submenu dl+dl{
+/*  6-2)*/
+  margin-left: 1rem;
+}
+.submenu dt{
+/*  7)*/
+  font-size: 1.2rem;
+  color:#dd1a32;
+  font-weight: bold;
+  border-bottom: 1px solid #dd1a32;
+  padding: 0 0 10px 10px;
+  
+}
+.submenu dd{
+/*  8)*/
+  margin: 20px 10px;
+}
+.submenu dd:hover a{
+/*  8-2)*/
+  color:#dd1a32;
+}
+
+
+/*header end*/
+/*main*/
+/*main에 position띄우면 불안정해짐 최대한 하지말기*/
+main{
+/*  3)bx슬라이더를 main 안에 넣자*/
+  
+}
+
+#slide{
+/*  3)*/
+/*  width: 1920px;*/
+/*  여기서 bxslider .css 들어가서 수정하기*/
+}
+
+#slide li{
+/*  2)*/
+  height: 702px;
+  font-size: 0;
+  line-height: 0;
+  width: 100%;
+/*  html파일 가서 link걸고 script 걸어서 bxslider 걸어준다.*/
+}
+
+/*1) 이미지 넣기             딴거로 바꿔서 의미없다*/
+/*
+#slide li:nth-child(1){
+  background: url("../images/slider01.jpg")center;
+}
+#slide li:nth-child(2){
+  background: url("../images/slider02.jpg")center;
+}
+#slide li:nth-child(3){
+  background: url("../images/slider03.jpg")center;
+}
+*/
+
+/*#contents*/
+#contents{}
+
+#banner{
+/*  2) 다른 박스와 관계있고 띄우기만하기위해 relative 준다. 위치조정이랑 zindex 둔다*/
+  position:relative;
+  margin-top: -60px;
+  z-index: 5;
+/*  3) 여기까지하고 다시 html로 넘어가서 ban1 꾸민다.*/
+}
+#ban1{
+/*  width값은 container 값의 절반이다.*/
+/*  1)width와 height 과 float주기!*/
+  width: 510px;
+  height: 255px;
+  background: #eee;
+  float:left;
+  
+}
+
+/*4) ban1 안에서 수정한것 붙여넣기*/
+.btextcover{
+/*  4-1)*/
+  width: 255px;
+  
+  background: #dd1a32;
+  float:left;
+  
+}
+.btextcover a{
+/*  5)*/
+  display:block;
+/*  a가 있을경우는 부모값 .btextcover 에서 height: 주는게 아니라 a에서 준다*/
+  height: 255px;
+  padding: 30px;
+  color:#fff;
+  text-align: center;
+}
+.btextcover span{
+/*  5-2)display:block 줘야 글 마다 한칸씩 띄어진다.*/
+  display:block;
+}
+
+
+.btextcover .btext1{
+/*  6)밑에 특징들 순서대로 쭉*/
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+.btextcover .btitle{
+  font-size: 2.7rem;
+  line-height: 1;
+}
+.btextcover .bbar{
+  width: 40px;
+  border-top: 4px solid;
+/*  중앙에 가기위해 margin: auto준다*/
+  margin:20px auto;
+}
+.btextcover .btext2{
+/*  letter-spacing: 는 자간이다.*/
+  letter-spacing: -1px;
+}
+
+.imgcover{
+/*  4-2)*/
+  width: 255px;
+  height: 255px;
+/*  4-3)사진 위치 안잡혀서 안보인다. .btextcover 위치는 왼쪽, imgcover는 오른쪽 잡으면 된다.*/
+  float:right;
+}
+/*4번까지 하고 html에서 ban4 꾸미자 구성이 ban1이랑 똑같으니까*/
+
+.imgcover img{}
+
+
+#ban2{
+/*  1-2)*/
+  width: 510px;
+  height: 510px;
+  background: #fff;
+  float:right;
+  border-top: 1px solid #ccc;
+}
+/*6)*/
+#ban2-1{
+/*  6-2)*/
+  float:left;
+  width: 255px;
+}
+.itemcover{
+  width: 255px;
+}
+.itemcover li{
+/*  6-4*/
+  float:left;
+  width: 50%;
+  text-align: center;
+  background: url("../images/b_menu.png");
+/*  여기서 background: 두고 나머지는 포지션만 잡아준다.*/
+  
+}
+/*6-6).itemcover li:nth-child(1) 해주고 position 잡기*/
+.itemcover li:nth-child(1){
+  background-position: 0px -10px;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+.itemcover li:nth-child(2){
+   background-position: -128px -10px;
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+.itemcover li:nth-child(3){
+   background-position: 256px -10px;
+  border-right: 1px solid #ccc;
+}
+.itemcover li:nth-child(4){
+   background-position: -384px -10px;
+  border-right: 1px solid #ccc;
+}
+.itemcover li a{
+/*  6-5)*/
+  display:block;
+  height: 127px;
+}
+.itemcover li span{
+/*  6-7)*/
+  display:inline-block;
+  padding-top: 90px;
+  font-size: 1.2rem;
+}
+
+/*6-9) 공동요소 effect*/
+.itemcover li:hover{
+/*  만약 background: 라고 쓰면 이미지 보이지 않기때문에 background-color 써서 색만바꿔준다.*/
+  background-color: #dd1a32;
+  color:#fff;
+}
+/*6-8) hover effect  전부 y값에 -128을 더해주면 된다.*/
+.itemcover li:hover:nth-child(1){
+  background-position: 0px -138px;
+}
+.itemcover li:hover:nth-child(2){
+  background-position: -128px -138px;
+}
+.itemcover li:hover:nth-child(3){
+  background-position: 256px -138px;
+}
+.itemcover li:hover:nth-child(4){
+  background-position: -384px -138px;
+}
+#ban2-1 .btextcover{
+/*  6-1)*/
+  background: #555;
+}
+
+#ban2-2{
+/*  6-3)*/
+  float:right;
+  width: 255px;
+/*  7-8)*/
+  border-right: 1px solid #ccc;
+}
+
+/*7)*/
+.news{
+/*  7-1)*/
+  padding: 30px;
+  height: 255px;
+}
+.news h3{
+/*  7-2)*/
+  font-size: 1.8rem;
+  color: #dd1a32;
+}
+.news span{
+/*  7-3)*/
+  display:block;
+  width: 30px;
+  border-top:1px solid #dd1a32;
+  margin: 10px 0 30px;
+}
+.news a{
+/*  7-4)*/
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.news p{
+/*  7-5)*/
+  margin-top: 10px;
+}
+.news .graytext{
+/*  7-6)*/
+  color:#999;
+  margin:2rem 0;
+}
+.dashbar{
+/*  7-7)*/
+  display:block;
+  width: 200px;
+  border-top: 1px dashed #ccc;
+/*  마진 오토 안하면 왼쪽으로 쏠린다. 그래서 가운데 오도록 만든다*/
+  margin:auto;
+}
+
+
+
+#ban3{
+/*  1-3)*/
+  width: 510px;
+  height: 510px;
+  background: #aaa;
+  float:left;
+/*  8-6)*/
+  position:relative;
+}
+/*8)*/
+.stextcover{
+/*  8-1)*/
+  margin:30px;
+}
+.stextcover h2{
+/*  8-2)*/
+  font-size: 3.5rem;
+  font-weight: normal;
+  letter-spacing: -2px;
+}
+.stextcover span{
+/*  8-3)*/
+  display:block;
+  width: 35px;
+  border-top: 3px solid #dd1a32;
+  margin:20px 0 15px;
+}
+.stextcover h3{
+/*  8-4)*/
+  font-size: 1.7rem;
+  letter-spacing: -2px;
+}
+.stextcover p{
+/*  8-4)*/
+  font-size: 1.3rem;
+  margin-top: 20px;
+}
+
+.imgslide{}
+.imgslide img{
+/*  8-5) 이미지가 띄어야 하고 서로 겹쳐져야한다.*/
+  position:absolute;
+  right: 0;
+  top: 0;   
+/*  right:0이 되는 부모는 #ban3가 되어야한다.*/
+/*  여기까지 하고 javascript 넘어가서 자동 넘어가게 하자*/
+}
+
+#ban4{
+  /*  1-4)*/
+  width: 510px;
+  height: 255px;
+  background: #000;
+  float:right;
+}
+
+/*5)*/
+#ban4 .btextcover{
+  width: 255px;
+  background: green;
+/*  5-2) 기존에 float:left였는데 right으로 바꾸면 자동으로 바뀌게 된다.*/
+  float:right;
+/*  이렇게 4번은 끝난다. 다시 html넘어가서 4)인 ban2 수정하자*/
+}
+
+/*##############################################################################*/
+
+#intro{
+  padding: 10rem 0 4rem;
+}
+
+.intitle{
+/*  1)*/
+  text-align: center;
+  font-size: 1.7rem;
+}
+.intitle h3{
+
+}
+.intitle .xxcover{
+/*  1-3)*/
+/*  repeat-x 하면 한줄만 쭉 나온다*/
+  background: url("../images/line_bg01.jpg") repeat-x center;
+}
+.intitle h2{
+/*  1-2)*/
+  font-size: 3rem;
+  /*  1-4)*/
+  background: #fff;
+  width: 280px;
+/*  이렇게 하면 쏠리기 때문에 margin:auto; 준다.*/
+  margin:auto;
+  letter-spacing: -1px;
+}
+.intitle p{
+/*  1-5)*/
+  font-size: 1.3rem;
+  padding-top: 10px;
+  color:#555;
+}
+
+.inlist{
+/*  2)*/
+  padding:3rem 0;
+/*  2-6) 해야 padding 으로 밀어진다. 위에 float때문에@@@*/
+  overflow:hidden;
+}
+.inlist li{
+/*  2-1)*/
+  float:left;
+/*  2-4)*/
+  width: 240px;
+/*  2-8)*/
+  border:1px solid #ccc;
+  transition:0.5s;
+}
+.inlist li:nth-child(even){
+/*  3-4)짝수 만 해당!*/
+  margin-top: 40px;
+}
+.inlist li+li{
+/*  2-5)*/
+  margin-left: 20px;
+}
+.inlist li a{
+/*  2-2)*/
+  display:block;
+/*  2-9)*/
+  padding: 10px;
+}
+.inlist li img{
+/*  2-7)*/
+  width: 100%;
+}
+.inlist li span{
+/*  2-3) 해야 밑으로 떨어진다.*/
+  display:block;
+}
+.inlist li .subtitle{
+/*  3)*/
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-top: 25px;
+}
+.inlist li .subtext{
+/*  3-2)*/
+  margin:7px 0 15px;
+}
+.inlist li .submore{
+/*  3-3)  -> 3-4는 위로 올라가라!*/
+  margin-bottom: 15px;
+}
+
+/*hover effect*/
+.inlist li:hover{
+/*  3-5)*/
+  border-top-color: #dd1a32;
+  transform: translateY(-10px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.inbtn{
+/*  4)*/
+  display:block;
+  background:#dd1a32; 
+  width: 200px;
+  padding: 10px 50px;
+  font-size: 1.5rem;
+  color: #fff;
+  border-radius: 30px;
+  margin:auto;
+  text-align: center;
+/*  미리 border해 놓으면 hover 할 경우 티안나게 보인다.*/
+  border: 2px solid #dd1a32;
+  font-weight: bold;
+  transition: 0.3s;
+  
+}
+
+/*4-2)*/
+.inbtn:hover{
+  background: #fff;
+  color:#dd1a32;
+  
+}
+
+/*##################################################################*/
+#find{
+/*  1)*/
+  padding: 3rem 0;
+  background: #eee;
+  overflow: hidden;
+}
+.findbox{
+/*  1-2)*/
+  width:49%;
+  height: 140px;
+  color: #fff;
+/*  1-5)*/
+  padding: 2rem;
+}
+
+/*.findbox안의 .left 하려면 띄어쓰기 하지 않고 그냥 바로적는다!!!*/
+.findbox.left{
+/*  1-3)*/
+  float:left;
+/*  1-5)그 외 배경색은 바로 적는다.*/
+  background: url("../images/banner_bg01.jpg") #2e4e7d no-repeat 380px;
+  
+}
+.findbox.right{
+/*  1-4)*/
+  float:right;
+  background: url("../images/banner_bg02.jpg") #314252 no-repeat 380px;
+}
+
+
+.findbox h3{
+/*  2)*/
+  font-size: 1.7rem;
+  margin-bottom: 10px;
+}
+.findbox h2{
+/*  2-2)*/
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+.findbox p{}
+.findbox a{
+/*  2-4)*/
+  display:inline-block;
+  margin-top: 20px;
+}
+
+.fgray{
+/*  2-3)*/
+  color: #999;
+}
+/*###################################################################*/
+#bot-menu{
+/*  0)*/
+  background: #333;
+  padding: 4rem 0 6rem;
+  color: #666;
+}
+
+#bot-menu dl{
+/*  1)*/
+  float:left;
+  width: 150px;
+}
+#bot-menu dl+dl{
+/*  1-2)*/
+  margin-left: 24px;
+}
+
+#bot-menu dt{
+/*  1-3)*/
+  font-size: 1.3rem;
+  border-bottom: 1px solid #555;
+  font-weight: bold;
+  color: #ccc;
+  padding: 0 0 10px 10px;
+}
+
+#bot-menu dd{
+/*  1-4)*/
+  margin:10px;
+}
+
+#bot-menu dd:hover a{
+/*  1-5)*/
+  text-decoration: underline;
+}
+
+
+
+/*footer*/
+footer{
+/*  2)*/
+  background: #222;
+  color: #aaa;
+}
+
+#ftop{
+/*  3)*/
+  padding: 1.5rem 0;
+  overflow:hidden;
+}
+#ftop>li{
+/*  3-2)*/
+  float:left;
+}
+#ftop>li a{}
+#ftop>li a::after{
+/*  3-3) 이 부분 중요!!*/
+  content:'/';
+  display:inline-block;
+  margin:0 1rem;
+}
+/*3-4) 해서 마지막의 / 를 없애기! li 5번째의 자식 a를 after시켜라*/
+#ftop li:nth-child(5) a::after{
+  display:none;
+}
+
+#fbot{
+/*  3-5)*/
+  padding: 3rem 0 5rem;
+/*  4-4)*/
+  overflow: hidden;
+  border-top: 1px solid #555;
+}
+
+#flogo{
+/*  4)*/
+  float:left;
+}
+
+address{
+/*  4-2)*/
+  float:left;
+  margin-left: 3rem;
+  color: #777;
+  
+}
+
+.selectcover{
+/*  4-3)*/
+  float:right;
+}
+.selectcover select{
+/*  4-5)*/
+  background: #444;
+  color:#aaa;
+  border:none;
+  width: 150px;
+  height: 30px;
+  padding-left: 10px;
+  border-radius: 15px;
+  border-radius: 15px;
+}
+
+/*sub02page start*/
+#sub-banner{
+/*  1)*/
+  background: url("../images/visual_md.jpg")#820c02 center no-repeat;
+  height: 180px;
+  color:#fff;
+  padding-top: 4rem;
+}
+#sub-banner h3{
+  font-size: 2rem;
+}
+#sub-banner h2{
+  font-size: 3.5rem;
+  line-height: 1.2;
+  font-weight: normal;
+  letter-spacing: -2px;
+}
+
+#sub-body{}
+.body-menu{
+/*  1)*/
+  border-bottom: 1px solid #ccc;
+}
+.body-menu a{
+/*  1-2)*/
+  float:left;
+/*  1-7)*/
+  border-right: 1px solid #ccc;
+}
+
+.body-menu .btnnav{
+/*  1-3)*/
+  float:left;
+/*  2-4)*/
+  position:relative;
+}
+.body-menu button{
+/*  1-4)*/
+  width: 200px;
+  height: 49px;
+/*  1-6) 위 a에도 border 만들자!*/
+  border-right: 1px solid #ccc;
+/*  1-8) text-align 을 center가 아니라 left 잡을수있다.*/
+  text-align: left;
+  padding-left: 20px;
+  background: url("../images/down_icon.jpg") no-repeat 180px;
+}
+
+.body-menu .btnsub{
+/*  1-5)잠깐 귀찮아서 안보이게 하구 꾸민후 다시 보이게 한다.*/
+/*  1-9) 다시 해제하자*/
+  display:none;
+  width: 150px;
+  background: #fff;
+  border:1px solid #ccc;
+/*  2-2)*/
+  position:absolute;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.31);
+  top:50px;
+/*  미리 뜨는 애들은 z-index: 주자*/
+  z-index: 50;
+}
+.body-menu .btnsub li{
+/*  2-1)*/
+  display:block;
+  
+}
+.body-menu .btnsub li a{
+/*  2)*/
+  display:block;
+  padding:10px 0;
+}
+/*#####################################################*/
+.body-contents{
+  padding: 6rem 0;
+}
+
+.bodytitle{
+/*  1)*/
+  text-align: center;
+}
+.bodytitle h3{
+/*  1-2)*/
+  font-size: 2.2rem;
+  font-style: italic;
+  letter-spacing: -1px;
+}
+.bodytitle h2{
+/*  1-3)*/
+  font-size: 3.5rem;
+  letter-spacing: -3px;
+  
+}
+
+.body-con-menu{
+/*  1-4)*/
+  margin: 8rem 0 4rem; 
+  border:1px solid #ccc;
+}
+.body-con-menu li{
+/*  1-5)*/
+  float:left;
+  width: 169px;
+  text-align: center;
+  
+}
+/*1-6)*/
+.body-con-menu li+li{
+  border-left: 1px solid #ccc;
+}
+.body-con-menu li a{
+/*  1-6)*/
+  display:block;
+  line-height: 70px;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+.redbutton{
+/*  1-7) 처음 들어올때는 이 곳이 빨간색이여야한다.*/
+  background: #dd1a32;
+  color:#fff;
+}
+
+.body-con-box{
+/*  2)*/
+  text-align: center;
+}
+
+.body-con-box>img{}
+
+.body-con-box .contentlist{
+/*  2-2)*/
+  margin-top: 4rem;
+  overflow: hidden;
+}
+.body-con-box .contentlist li{
+/*  2-3)*/
+  float:left;
+  width: 300px;
+  padding-top: 70px;
+}
+/*2-4)*/
+.body-con-box .contentlist li+li{
+  margin-left: 60px;
+}
+/*2-5)*/
+.body-con-box .contentlist li:nth-child(1){
+/*  top 주면 맨 위로 붙는다*/
+  background: url("../images/cont0102.jpg") no-repeat center top;
+}
+.body-con-box li:nth-child(2){
+  background: url("../images/cont0103.jpg") no-repeat center top;
+}
+.body-con-box li:nth-child(3){
+  background: url("../images/cont0104.jpg") no-repeat center top;
+}
+.body-con-box h3{
+/*  2-6)*/
+  font-size: 2rem;
+}
+.body-con-box p{
+/*  2-7)*/
+  font-size: 1.2rem;
+  letter-spacing: -1px;
+  line-height: 1.5;
+  color:#666;
+}
+/*2-7)*/
+.body-con-box ins{
+  color:#000;
+}
+
+
+/*sub02-page*/
+.imglist{}
+.imglist li{
+/*  1-2)*/
+  margin:2rem 0;
+}
+.imglist img{
+/*  1)*/
+  width: 100%;
+}
+
+
+/*sub03-page*/
+.body-con-menu.item4 li{
+/*  위에 똑같은 것인데 이  페이지에서 width값이 달라야한다.*/
+/*  html에서 이 부분에 item4 클래스 넣는다.*/
+/*  동일한 클래스에 여러개의 이름을 붙여 넣을때는 띄어서 .body-con-menu .item4 가 아니라 붙여서 .body-con-menu.item4한다!!! 기억!*/
+  width: 244px;
+}
+
+.body-con-title{
+/*  1-3)*/
+  overflow: hidden;
+}
+
+.body-con-title p{
+/*  1)*/
+  float:left;
+}
+
+.body-con-title-search{
+/*  1-2)*/
+  float:right;
+/*  font-size: 0;*/
+}
+/*.body-con-title-search 아래에 있는 모든 요소에 inline으로 위치선정한다! float가능하지만 inline으로!*/
+/*
+.body-con-title-search>*{
+  display: inline-block;
+}
+원래는 inlineblock으로 하면 되지만 전부 inline블럭들이어서 그냥 fz를 0으로 한다
+*/
+
+.body-con-title-search>*{
+/*  2-3) 모든 요소 일직선에 있도록 float 건것이다!!*/
+  float:left;
+}
+.body-con-title-search select{
+/*  2)*/
+  width: 100px;
+  height: 30px;
+  border:1px solid #ccc;
+  color: #999;
+  padding-left: 10px;
+  margin-right: 10px;
+}
+
+.body-con-title-search input{
+  width: 200px;
+  height: 30px;
+  border:1px solid #ccc;
+  padding-left: 10px;
+  color: #999;
+}
+
+.body-con-title-search i{
+/*  2-2)*/
+  font-size: 1.5rem;
+  width: 30px;
+  line-height: 30px;
+  background: #dd1a32;
+  display:inline-block;
+  color: #fff;
+}
+/*##########################################################table*/
+.body-table{
+/*  1)*/
+  margin: 1.5rem 0 4rem;
+}
+
+.body-table table{
+/*  1-2)width:100%기억하기!!*/
+  width: 100%;
+  border-top: 2px solid #dd1a32;
+  
+}
+.body-table table tr{}
+.body-table table th{
+/*  1-3)*/
+  height: 40px;
+  background: #eee;
+  font-size: 1.2rem;
+  border-bottom: 1px solid #ccc;
+  
+}
+.body-table table td{
+/*  1-4)*/
+  height: 35px;
+  border-bottom: 1px solid #ccc;
+  font-size: 1.2rem;
+/*  cursor:pointer;*/
+}
+/*1-5)*/
+.body-table table td:nth-child(2){
+/*  왼쪽으로 쏠려라*/
+  text-align: left;
+  padding-left: 10px;
+}
+
+/*1-6)*/
+.tdcolor{
+  background: rgba(221, 26, 50, 0.15);
+}
+
+.body-table thead{}
+
+.body-table tbody{
+/*  cursor:pointer;*/
+}
+
+.body-btn{}
+.body-btn button{
+/*  1-7)*/
+  width: 30px;
+  height: 30px;
+  border:1px solid #ccc;
+  font-size: 0.9rem;
+}
+
+.body-btn button:nth-child(3){
+  background: #333;
+  color:#fff;
+  border-color: #333;
+}
+
+
+/*sub04_hot css*/
+
+.body-con-menu-hot{
+/*  1-4)*/
+  margin: 8rem 0 4rem; 
+  border:1px solid #ccc;
+}
+.body-con-menu-hot li{
+/*  1-5)*/
+  float:left;
+  width: 254px;
+  text-align: center;
+  
+}
+/*1-6)*/
+.body-con-menu-hot li+li{
+  border-left: 1px solid #ccc;
+}
+.body-con-menu-hot li a{
+/*  1-6)*/
+  display:block;
+  line-height: 70px;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.body-con-box-hot{
+	overflow: hidden;
+}
+.body-con-box-hot ul{}
+.body-con-box-hot li{
+	position:relative;
+	float:left;
+	width: 220px;
+	height: 320px;
+	text-align: center;
+	margin-left: 46px;
+}
+.body-con-box-hot li:nth-child(4n+1){
+	margin-left: 0;
+}
+
+.body-con-box-hot li img{}
+.body-con-box-hot li h3{
+	margin-top: 30px;
+	font-size: 1.1rem;
+	color:#dd1a32;
+}
+.body-con-box-hot li p{
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
+.body-con-box-hot .plus{
+	opacity: 0;
+	position:absolute;
+  width: 220px;
+	height: 320px;
+	top: 0;
+	left: 0;
+  background: #000;
+  color:#fff;
+  padding-top: 130px;
+/*	transform: translateX(-50%) translateY(-50%);*/
+}
+.body-con-box-hot .plus img{
+  
+}
+.body-con-box-hot .plus p{
+  margin-top: 20px;
+}
+
+.body-con-box-hot li:hover .plus{
+	opacity:0.5;
+}
+
+
+
+/*.body-con-box-hot li:hover*/
+
+
+/*sub05*/
+
+.inputinfor{
+/*  overflow: hidden;*/
+  width: 410px;
+  height: 100px;
+  margin:auto;
+}
+.inputbox{
+  overflow: hidden;
+  
+}
+.inputleft{
+  float:left;
+  margin-top: 20px;
+}
+.inputleft input{
+  display:block;
+  width: 300px;
+  height: 50px;
+}
+
+.inputright{
+  margin: 19px 0 0 2px;
+  float:left;
+  text-align: center;
+  background: #dd1a32;
+  border:1px solid #dd1a32;
+/*  border-radius: 5px;*/
+  font-size: 1.5rem;
+}
+.inputright button{
+  color:white;
+  width: 100px;
+  line-height:100px;
+  font-size: 1.5rem;
+}
+
+
+.inputbox2{
+  float:right;
+  display:inline-block;
+  margin-top: 5px;
+}
+.inputbox2 span{
+  
+}
+.inputbox2 span:nth-child(3){
+  margin-right: 120px;
+}
+
+.ytn{
+  margin:100px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
