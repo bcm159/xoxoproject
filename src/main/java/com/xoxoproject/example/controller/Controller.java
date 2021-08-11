@@ -53,18 +53,36 @@ public class Controller {
 		return "/user/join_process";
 	}
 	
+	//브랜드소개
 	@RequestMapping("/sub01")
 	public String sub01() {
 		return "/subindex/subindex1";
 	}
 	
+	//게시판
 	@RequestMapping("/board")
 	public String board() {
 		return "/board/board";
 	}
 	
-	@RequestMapping("/menu")
+	//menu
+	@RequestMapping("/hotdog")
 	public String menu() {
 		return "/menu/hotdog";
+	}
+	
+	@RequestMapping("/coffee")
+	public String coffee() {
+		return "/menu/coffee";
+	}
+	
+	@RequestMapping("/beverage")
+	public String beverage() {
+		return "/menu/beverage";
+	}
+	
+	@RequestMapping("/sidemenu")
+	public String sidemenu() {
+		return "/menu/sidemenu";
 	}
 }

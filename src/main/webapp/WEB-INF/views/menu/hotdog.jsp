@@ -10,7 +10,7 @@
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="/script/script.js"></script>
 <link rel="stylesheet" href="/css/common.css">
-<link rel="stylesheet" href="/css/style2.css">
+<link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 <div id="wrap">
@@ -83,26 +83,26 @@
               </div>
             </div>
             <div class="mainmenu">
-              <a href="/menu">메뉴</a>
+              <a href="/hotdog">메뉴</a>
               <div class="submenu">
                 <div class="container">
                   <dl>
                     <dt>Hotdog</dt>
-                    <dd><a href="/menu">HOTDOG</a></dd>
+                    <dd><a href="/hotdog">HOTDOG</a></dd>
                   </dl>
                   <dl>
                     <dt>Coffee</dt>
-                    <dd><a href="#">COFFEE</a></dd>
+                    <dd><a href="/coffee">COFFEE</a></dd>
                   </dl>
                   <dl>
                     <dt>Beverage</dt>
-                    <dd><a href="#">SMOOTHIE</a></dd>
-                    <dd><a href="#">ADE</a></dd>
+                    <dd><a href="/beverage">SMOOTHIE</a></dd>
+                    <dd><a href="/beverage">ADE</a></dd>
                   </dl>
                   <dl>
                     <dt>Side Menu</dt>
-                    <dd><a href="#">POTATO</a></dd>
-                    <dd><a href="#">FRIES</a></dd>
+                    <dd><a href="/sidemenu">POTATO</a></dd>
+                    <dd><a href="/sidemenu">FRIES</a></dd>
                   </dl>
                 </div>
               </div>
@@ -231,81 +231,81 @@
           <h2>Hotdog</h2>
         </div>
         <ul class="body-con-menu-hot clearfix">
-          <li><a href="#" class="redbutton">Hotdog</a></li>
-          <li><a href="#">Coffee</a></li>
-          <li><a href="#">Beverage</a></li>
-          <li><a href="#">Side Menu</a></li>
+          <li><a href="/hotdog" class="redbutton">Hotdog</a></li>
+          <li><a href="/coffee">Coffee</a></li>
+          <li><a href="/beverage">Beverage</a></li>
+          <li><a href="/sidemenu">Side Menu</a></li>
         </ul>
         <div class="body-con-box-hot">
         	<ul>
         		<li>
-        			<img src="../images/hotdog1.jpg" alt="">
+        			<img src="../images/menu/hotdog/hotdog1.jpg" alt="">
         			<h3>오리지널 핫도그	</h3>
         			<p>ORIGINAL HOTDOG</p>
         			<button>구매하기</button>
         		</li>
         		<li>
-        			<img src="../images/hotdog2.jpg" alt="">
+        			<img src="../images/menu/hotdog/hotdog2.jpg" alt="">
         			<h3>어니언 핫도그	</h3>
         			<p>ONION HOTDOG</p>
         			<button>구매하기</button>
         		</li>
         		<li>
-        			<img src="../images/hotdog3.jpg" alt="">
+        			<img src="../images/menu/hotdog/hotdog3.jpg" alt="">
         			<h3>렐리쉬 핫도그	</h3>
         			<p>RELISH HOTDOG</p>
         			<button>구매하기</button>
         		</li>
         		<li>
-        			<img src="../images/hotdog4.jpg" alt="">
+        			<img src="../images/menu/hotdog/hotdog4.jpg" alt="">
         			<h3>화이트 렐리쉬 핫도그</h3>
         			<p>WHITE RELISH HOTDOG</p>
         			<button>구매하기</button>
         		</li>
         		<li>
-        			<img src="../images/hotdog5.jpg" alt="">
+        			<img src="../images/menu/hotdog/hotdog5.jpg" alt="">
         			<h3>할리피뇨치즈 핫도그	</h3>
         			<p>JZLAPENO CHEESE HOTDOG</p>
         			<button>구매하기</button>
         		</li>
         		<li>
-        			<img src="../images/hotdog6.jpg" alt="">
+        			<img src="../images/menu/hotdog/hotdog6.jpg" alt="">
         			<h3>시카고 핫도그	</h3>
         			<p>CHICAGO HOTDOG</p>
         			<button>구매하기</button>
         		</li>
         		<li>
-        			<img src="../images/hotdog7.jpg" alt="">
+        			<img src="../images/menu/hotdog/hotdog7.jpg" alt="">
         			<h3>칠리치즈 핫도그	</h3>
         			<p>CHILLI CHEESE HOTDOG</p>
         			<button>구매하기</button>
         		</li>
         		<li>
-        			<img src="../images/hotdog8.jpg" alt="">
+        			<img src="../images/menu/hotdog/hotdog8.jpg" alt="">
         			<h3>튜나마요 핫도그	</h3>
         			<p>TUNA MAYO HOTDOG</p>
         			<button>구매하기</button>
         		</li>
         		<li>
-        			<img src="../images/hotdog9.jpg" alt="">
+        			<img src="../images/menu/hotdog/hotdog9.jpg" alt="">
         			<h3>페퍼로니 핫도그	</h3>
         			<p>PEPPERONI HOTDOG</p>
         			<button>구매하기</button>
         		</li>
         		<li>
-        			<img src="../images/hotdog10.jpg" alt="">
+        			<img src="../images/menu/hotdog/hotdog10.jpg" alt="">
         			<h3>어니언링 핫도그	</h3>
         			<p>ONION RING HOTDOG</p>
         			<button>구매하기</button>
         		</li>
         		<li>
-        			<img src="../images/hotdog11.jpg" alt="">
+        			<img src="../images/menu/hotdog/hotdog11.jpg" alt="">
         			<h3>스파이스치킨 핫도그	</h3>
         			<p>SPICY CHICKEN HOTDOG</p>
         			<button>구매하기</button>
         		</li>
         		<li>
-        			<img src="../images/hotdog1.jpg" alt="">
+        			<img src="../images/menu/hotdog/hotdog1.jpg" alt="">
         			<h3>치즈불고기 핫도그</h3>
         			<p>CHEESE BULGOGI HOTDOG</p>
         			<button>구매하기</button>

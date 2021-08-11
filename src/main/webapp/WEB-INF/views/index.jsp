@@ -7,8 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="/script/script.js"></script>
 <link rel="stylesheet" href="/css/common.css">
 <link rel="stylesheet" href="/css/style.css">
@@ -51,7 +50,7 @@
 				<div class="container">
 					<div id="logo">
 						<h1>
-							<a href="index.html"> <img src="images/logo.png" alt="">
+							<a href="/"> <img src="images/logo.png" alt="">
 							</a>
 						</h1>
 					</div>
@@ -106,19 +105,19 @@
 							</div>
 						</div>
 						<div class="mainmenu">
-							<a href="/menu">메뉴</a>
+							<a href="/hotdog">메뉴</a>
 							<div class="submenu">
 								<div class="container">
 									<dl>
 										<dt>Hotdog</dt>
 										<dd>
-											<a href="#">HOTDOG</a>
+											<a href="/hotdog">HOTDOG</a>
 										</dd>
 									</dl>
 									<dl>
 										<dt>Coffee</dt>
 										<dd>
-											<a href="#">COFFEE</a>
+											<a href="/coffee">COFFEE</a>
 										</dd>
 									</dl>
 									<dl>

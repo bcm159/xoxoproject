@@ -96,19 +96,19 @@
 							</div>
 						</div>
 						<div class="mainmenu">
-							<a href="/menu">메뉴</a>
+							<a href="/hotdog">메뉴</a>
 							<div class="submenu">
 								<div class="container">
 									<dl>
 										<dt>Hotdog</dt>
 										<dd>
-											<a href="/menu">HOTDOG</a>
+											<a href="/hotdog">HOTDOG</a>
 										</dd>
 									</dl>
 									<dl>
 										<dt>Coffee</dt>
 										<dd>
-											<a href="#">COFFEE</a>
+											<a href="/coffee">COFFEE</a>
 										</dd>
 									</dl>
 									<dl>
