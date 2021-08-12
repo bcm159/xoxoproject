@@ -16,18 +16,27 @@
 
 <title>Board</title>
 </head>
+<style>
+
+</style>
 <body>
 	<div id="wrap">
     <header>
       <div id="h-top">
         <div class="container">
           <ul class="topnav">
-            <li><a href="../index.html">홈으로</a></li>
+            <li><a href="/">홈으로</a></li>
             <li><a href="#">즐겨찾기</a></li>
             <li><a href="#">매장찾기</a></li>
             <li><a href="#">가맹문의</a></li>
             <li><a href="#">이메일문의</a></li>
-            <li><a href="sub05_login.html">로그인</a></li>
+            <sec:authorize access="isAnonymous()">
+				<li><a href="/login">로그인</a></li>
+			</sec:authorize>
+			<sec:authorize access="isAuthenticated()">
+               <sec:authentication property="principal" var="principal"/>
+                <li><a href="/logout" class="logout">로그아웃</a></li>
+            </sec:authorize>
           </ul>
           <div class="snscover">
             <a href="#">페이스북</a>
@@ -41,7 +50,7 @@
         <div class="container">
           <div id="logo">
             <h1>
-              <a href="../index.html">
+              <a href="/">
                 <img src="../images/logo.png" alt="">
               </a>
             </h1>
@@ -81,26 +90,26 @@
               </div>
             </div>
             <div class="mainmenu">
-              <a href="#">메뉴</a>
+              <a href="/hotdog">메뉴</a>
               <div class="submenu">
                 <div class="container">
                   <dl>
                     <dt>Hotdog</dt>
-                    <dd><a href="#">HOTDOG</a></dd>
+                    <dd><a href="/hotdog">HOTDOG</a></dd>
                   </dl>
                   <dl>
                     <dt>Coffee</dt>
-                    <dd><a href="#">COFFEE</a></dd>
+                    <dd><a href="/coffee">COFFEE</a></dd>
                   </dl>
                   <dl>
                     <dt>Beverage</dt>
-                    <dd><a href="#">SMOOTHIE</a></dd>
-                    <dd><a href="#">ADE</a></dd>
+                    <dd><a href="/beverage">SMOOTHIE</a></dd>
+                    <dd><a href="/beverage">ADE</a></dd>
                   </dl>
                   <dl>
                     <dt>Side Menu</dt>
-                    <dd><a href="#">POTATO</a></dd>
-                    <dd><a href="#">FRIES</a></dd>
+                    <dd><a href="/sidemenu">POTATO</a></dd>
+                    <dd><a href="/sidemenu">FRIES</a></dd>
                   </dl>
                 </div>
               </div>
@@ -163,7 +172,7 @@
               </div>
             </div>
             <div class="mainmenu">
-              <a href="#">커뮤니티</a>
+              <a href="/board">커뮤니티</a>
               <div class="submenu">
                 <div class="container">
                   <dl>
@@ -172,7 +181,7 @@
                   </dl>
                   <dl>
                     <dt>공지사항</dt>
-                    <dd><a href="#">공지사항</a></dd>
+                    <dd><a href="/board">공지사항</a></dd>
                   </dl>
                   <dl>
                     <dt>보도자료</dt>
@@ -228,7 +237,7 @@
       <div class="body-contents container">
         <div class="bodytitle">
           <h3>Community</h3>
-          <h2>공지사항</h2>
+          <h2>게시판</h2>
         </div>
         <ul class="body-con-menu item4 clearfix">
           <li><a href="#">소셜 XOXO</a></li>
@@ -254,75 +263,40 @@
             <table>
               <thead>
                 <tr>
-                  <th>번호</th>
+                  <th class="num1">번호</th>
                   <th>제목</th>
-                  <th>날짜</th>
-                  <th>조회</th>
+                  <th class="num2">날짜</th>
+                  <th class="num3">조회</th>
                 </tr>
               </thead>
               <tbody>
-                <tr class="tdcolor">
+              	<c:forEach items="${list }" var="item" varStatus="status">
+               		<tr>
+               			<td>${item.board_num}</td>
+               			<td><a href="read?num=${item.board_num}">${item.board_sub}</a></td>
+               			<td>${item.board_name}</td>
+               			<td>${item.board_read}</td>
+               		</tr>
+               	</c:forEach>
+                <!-- <tr class="tdcolor">
                   <td>[공지]</td>
                   <td>매송휴게소 OPEN 안내</td>
                   <td>2018-04-13</td>
                   <td>107</td>
                 </tr>
-                <tr class="tdcolor">
-                  <td>[공지]</td>
-                  <td>XOXO 오리지널 콘덕 출시!</td>
-                  <td>2018-02-28</td>
-                  <td>134</td>
-                </tr>
-                <tr class="tdcolor">
-                  <td>[공지]</td>
-                  <td>XOXO 핫도그앤커피, 고속도로 휴게소 출점 본격 시동</td>
-                  <td>2017-12-12</td>
-                  <td>149</td>
-                </tr>
-                <tr class="tdcolor">
-                  <td>[공지]</td>
-                  <td>XOXO 핫도그앤커피 '2017 스마트 디바이스쇼' 참가!</td>
-                  <td>2017-08-17</td>
-                  <td>151</td>
-                </tr>
-                <tr class="tdcolor">
-                  <td>[공지]</td>
-                  <td>2017 지산 밸리록 뮤직앤드 아츠 페스티벌 엑소엑소 핫도그 참가!</td>
-                  <td>2017-08-01</td>
-                  <td>159</td>
-                </tr>
-                <tr>
-                  <td>6</td>
-                  <td>XOXO핫도그앤커피 2018 설 연휴 배송 안내</td>
-                  <td>2018-02-12</td>
-                  <td>339</td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>2017추석연휴기간 물류배송 안내</td>
-                  <td>2017-09-22</td>
-                  <td>225</td>
-                </tr>
+                
                 <tr>
                   <td>4</td>
                   <td>★엑소엑소 핫도그앤커피 1주년 기념 이벤트!★</td>
                   <td>2017-04-27</td>
                   <td>185</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>2017정유년 새해 福 많이 받으십시오!</td>
-                  <td>2017-01-26</td>
-                  <td>165</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>엑소엑소 핫도그앤커피 포테이토 신 메뉴 출시!</td>
-                  <td>2016-12-05</td>
-                  <td>360</td>
-                </tr>
+                </tr> -->
+                
               </tbody>
             </table>
+            <div class="create-btn">
+               <a href="/write" class="create-btn-b1">글쓰기</a>
+            </div>
           </div>
           <div class="body-btn">
             <button>&#60;&#60;</button>

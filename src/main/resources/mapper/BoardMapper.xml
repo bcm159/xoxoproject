@@ -1,11 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xoxoproject.example.mapper.BoardMapper">
-	<!-- <select id="selectBoardList" resultType="Board">
-	      SELECT         b_id as bId,
-				                 b_title as bTitle,
-				                 b_content as bContent,
-				                 b_writer as bWriter
-	      FROM            lc_board
-	   </select> -->
+	 <select id="selectBoardList" resultType="Board">
+	      SELECT         	 board_num,
+			                 board_date,
+			                 board_name,
+			                 board_sub,
+			                 board_text,
+			                 board_read
+	      FROM            	 xo_board
+	 </select>
+	 
+	 <!--  게시글 추가하기-->
+	 <insert id="insertBoard" parameterType="Board">
+		INSERT INTO xo_board(
+	      	board_sub,
+	      	board_pw,
+	      	board_text,
+	      	board_id,
+	      	board_name
+	      )VALUES(
+	      #{board_sub},
+	      #{board_pw},
+	      #{board_text},
+	      #{board_id},
+	      #{board_name}
+	      )
+	      <selectKey keyProperty="board_read" resultType="Integer">
+	      	SELECT LAST_INSERT_ID()
+	      </selectKey>
+	</insert>
+	
+	<update id="updateBoard">
+		UPDATE 		xo_board 
+		SET 		board_groupId=#{board_read}
+		WHERE 		board_num=#{board_read}
+	</update>
+	
+	<!--  게시글 읽기-->
+	<select id="readBoardList" resultType="Board">
+	      SELECT         	 *
+	      FROM            	 xo_board
+	      WHERE				board_num=#{num}
+	      
+	</select>
+	
+	<!--  게시글 읽을때마다 board_read++-->
+	<update id="updateRead">
+		UPDATE 		xo_board 
+		SET 		board_read=board_read+1
+		WHERE 		board_num=#{num}
+	</update>
 </mapper>
