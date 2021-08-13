@@ -29,4 +29,19 @@ public class BoardServiceImpl implements BoardService{
 		boardmapper.updateRead(num);
 		return boardmapper.readBoardList(num);
 	}
+	
+	@Override
+	public Board getUpdateBoard(int num) {
+		return boardmapper.getUpdateBoard(num);
+	}
+	
+	@Override
+	public void updateBoardProcess(Board board) {
+		boardmapper.updateBoardProcess(board);
+	}
+	
+	@Override
+	public void deleteBoard(int num) {
+		boardmapper.deleteBoard(num);
+	}
 }

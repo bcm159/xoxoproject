@@ -1,11 +1,10 @@
 package com.xoxoproject.example.domain;
 
-import java.time.LocalDateTime;
 
 public class Board {
 
 	private int board_num;		//idx
-	private LocalDateTime board_date;	//날짜
+	private String board_date;	//날짜
 	private String board_name;	//이름
 	private String board_sub;	//제목
 	private String board_pw;	//비밀번호
@@ -26,13 +25,14 @@ public class Board {
 		this.board_num = board_num;
 	}
 	
-	public LocalDateTime getBoard_date() {
+	
+	
+	public String getBoard_date() {
 		return board_date;
 	}
-	public void setBoard_date(LocalDateTime board_date) {
+	public void setBoard_date(String board_date) {
 		this.board_date = board_date;
 	}
-	
 	public String getBoard_name() {
 		return board_name;
 	}

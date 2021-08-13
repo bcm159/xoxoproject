@@ -246,20 +246,32 @@
                             </tr>
                             <tr>
                                 <th>작성일</th>
-                                <td>2021.07.11</td>
+                                <td>${board.board_date }</td>
 
                             </tr>
                         </tbody>
                     </table>
                     <p class="text-body">${board.board_text }</p>
                     <div class="create-btn">
-                        <button class="create-btn-b1">목록</button>
+                        <button class="create-btn-b1" onclick="location.href='/board'">목록</button>
                     </div>
                     <div class="create-btn">
-                        <button class="create-btn-b1">수정</button>
+                    	<form action="update" method="post">
+	                    	<input type="hidden" name="num" value="${board.board_num }">
+	                        <button class="create-btn-b1" onclick="location.href='/board/update'">수정</button>
+                    	</form>
                     </div>
                     <div class="create-btn">
-                        <button class="create-btn-b1">삭제</button>
+                    	<form action="delete" method="post">
+                    		<input type="hidden" name="num" value="${board.board_num }">
+                        	<button class="create-btn-b1">삭제</button>
+                    	</form>
+                    </div>
+                    <div class="create-btn">
+                    	<form action="comment" method="post">
+                    		<input type="hidden" name="num" value="${board.board_num }">
+                        	<button class="create-btn-b1">댓글</button>
+                    	</form>
                     </div>
                 </div>
 

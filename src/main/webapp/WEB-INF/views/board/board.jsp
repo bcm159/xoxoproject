@@ -274,7 +274,7 @@
                		<tr>
                			<td>${item.board_num}</td>
                			<td><a href="read?num=${item.board_num}">${item.board_sub}</a></td>
-               			<td>${item.board_name}</td>
+               			<td>${item.board_date}</td>
                			<td>${item.board_read}</td>
                		</tr>
                	</c:forEach>

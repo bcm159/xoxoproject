@@ -1,6 +1,8 @@
 package com.xoxoproject.example.controller;
 
 import java.security.Principal;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -79,7 +81,11 @@ public class Controller {
 	
 	//쓰기
 	@RequestMapping("/write")
-	public String write(){
+	public String write(Model model){
+		Date today = new Date();
+		SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
+		model.addAttribute("timestamp",format1.format(today));
+		
 		return "/board/write";
 	}
 	
@@ -96,6 +102,27 @@ public class Controller {
 		Board board = boardservice.readBoardList(num);
 		model.addAttribute("board",board);
 		return "/board/read";
+	}
+	
+	//수정
+	@PostMapping("/update")
+	public String update(@RequestParam int num,Model model) {
+		Board board = boardservice.getUpdateBoard(num);
+		model.addAttribute("board",board);
+		return "/board/update";
+	}
+	
+	@PostMapping("/update_process")
+	public String update_process(Board board) {
+		boardservice.updateBoardProcess(board);
+		return "/board/update_process";
+	}
+	
+	//삭제
+	@PostMapping("/delete")
+	public String delete(@RequestParam int num) {
+		boardservice.deleteBoard(num);
+		return "/board/delete";
 	}
 	
 	//menu

@@ -7,27 +7,25 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
 <link rel="stylesheet" href="/css/common.css">
 <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-	<div class="container_join">
+<div class="container_join">
         <div class="join_box">
-        	<form action="/write_process" method="post">
+        	<form action="/update_process" method="post">
 	            <div class="input_box">
 	            	<sec:authorize access="isAuthenticated()">
 		               <sec:authentication property="principal" var="principal"/>
-		               		<input type="hidden" name="board_date" value="${timestamp }">
-		               		<input type="hidden" name="board_name" value="${principal.uName }">
+		               		<input type="hidden" name="board_num" value="${board.board_num }">
 		               		<p>작성자</p>
 			                <input type="text" value=${principal.username} readonly name="board_id">
 			                <p>제목</p>
-			                <input type="text" name="board_sub">
+			                <input type="text" value=${board.board_sub} name="board_sub">
 			                <p>비밀번호</p>
 			                <input type="password" name="board_pw">
 			                <p>내용</p>
-			                <p><textarea cols="65" rows="15" name="board_text"></textarea></p>
+			                <p><textarea cols="65" rows="15" name="board_text">${board.board_text}</textarea></p>
 	            	</sec:authorize>
 	            
 	            </div>

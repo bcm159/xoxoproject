@@ -18,13 +18,15 @@
 	      	board_pw,
 	      	board_text,
 	      	board_id,
-	      	board_name
+	      	board_name,
+	      	board_date
 	      )VALUES(
 	      #{board_sub},
 	      #{board_pw},
 	      #{board_text},
 	      #{board_id},
-	      #{board_name}
+	      #{board_name},
+	      #{board_date}
 	      )
 	      <selectKey keyProperty="board_read" resultType="Integer">
 	      	SELECT LAST_INSERT_ID()
@@ -51,4 +53,27 @@
 		SET 		board_read=board_read+1
 		WHERE 		board_num=#{num}
 	</update>
+	
+	<!--  게시글 수정 위해 글 가져오기-->
+	<select id="getUpdateBoard" resultType="Board">
+	      SELECT         	 *
+	      FROM            	 xo_board
+	      WHERE				board_num = #{num}
+	 </select>
+	 
+	
+	 <!--  게시글 수정-->
+	 <update id="updateBoardProcess">
+	 	UPDATE		xo_board
+	 	SET 		board_sub = #{board_sub},
+	 				board_pw = #{board_pw},
+	 				board_text = #{board_text}
+	 	WHERE		board_num = #{board_num}
+	 
+	 </update>
+	 
+	 <delete id="deleteBoard">
+	 	DELETE FROM xo_board
+        WHERE board_num = #{num}
+	 </delete>
 </mapper>
