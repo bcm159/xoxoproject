@@ -1029,22 +1029,52 @@ address{
 
 
 
-.body-table .create-btn {
-    border: 1px solid #ccc;
+.comment-box{
+    
+    border-bottom: 1px solid #ccc;
+}
 
+.comment-input{
+    width: 800px;
+    height: 50px;
+    border: 1px solid #959595;
+    border-radius: 5px;
+    
+    margin: 15px 20px;
+}
+
+.create-comment-b1{
     width: 70px;
     line-height: 30px;
-    margin: 5px;
+    background:  #dd1a32;
+    color:#fff;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-left: 50px;
+}
+
+.button-box{
+    
+}
+
+
+.button-box li{
+    
+    border: 1px solid #ccc;
+    
+    width: 70px;
+    line-height: 30px;
+    margin:5px;
     float: right;
     border-radius: 5px;
     text-align: center;
-    background: #dd1a32;
+    background:  #dd1a32;
 }
-
-.body-table .create-btn .create-btn-b1 {
-    color: white;
+.create-btn-b1{
+    color:#fff;
     font-weight: bold;
 }
+
 
 /*sub04_hot css*/
 
