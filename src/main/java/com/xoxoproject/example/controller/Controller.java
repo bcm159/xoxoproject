@@ -1,6 +1,5 @@
 package com.xoxoproject.example.controller;
 
-import java.security.Principal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -14,10 +13,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.xoxoproject.example.domain.Board;
+import com.xoxoproject.example.domain.Comment;
 import com.xoxoproject.example.domain.User;
 import com.xoxoproject.example.service.BoardService;
+import com.xoxoproject.example.service.CommentService;
 import com.xoxoproject.example.service.UserService;
 
 @org.springframework.stereotype.Controller
@@ -26,6 +28,7 @@ public class Controller {
 	
 	@Autowired UserService userservice;
 	@Autowired BoardService boardservice;
+	@Autowired CommentService commentservice;
 	
 	@RequestMapping("/")
 	public String home() {
@@ -98,11 +101,19 @@ public class Controller {
 	
 	//읽기
 	@RequestMapping("/read")
-	public String read(@RequestParam int num,Model model) {
+	public String read(@RequestParam(value="num", required=false, defaultValue="1") int num,Model model) {
 		Board board = boardservice.readBoardList(num);
 		model.addAttribute("board",board);
 		return "/board/read";
 	}
+	
+	@RequestMapping("/comment")
+	public String comment(@RequestParam(value="idx") String idx) {
+		System.out.println("asdfasfdsda::::");
+		System.out.println(idx);
+		return "/board/comment2";
+	}
+	
 	
 	//수정
 	@PostMapping("/update")
@@ -125,6 +136,9 @@ public class Controller {
 		return "/board/delete";
 	}
 	
+	
+	
+	
 	//menu
 	@RequestMapping("/hotdog")
 	public String menu() {
@@ -145,4 +159,7 @@ public class Controller {
 	public String sidemenu() {
 		return "/menu/sidemenu";
 	}
+	
+	
+	
 }

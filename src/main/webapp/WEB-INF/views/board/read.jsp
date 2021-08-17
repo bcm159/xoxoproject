@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link rel="stylesheet" href="/css/common.css">
 <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -307,20 +308,20 @@
 					<p class="text-body">${board.board_text }</p>
 
 
-					<!--  ajax 댓글-->
-					<script>
-                   	function comment__submitForm(form){
-                   		alert(form.body.value);
-                   	}
-                   	</script>
+					
 					<div class="comment-box">
-						<form action="comment" method="post"
-							onsubmit="comment__submitForm(this);">
-							<input type="text" class="comment-input"> <input
-								type="hidden" name="num" value="${board.board_num }">
-							<button class="create-comment-b1">댓글</button>
+						<form action="comment" method="post" onsubmit="comment__submitForm(this);">
+							<input type="text" class="comment-input" name="cm_text"> 
+							<input type="hidden" name="board_num" value="${board.board_num }">
+							<button type="button" class="create-comment-b1">댓글</button>
 						</form>
 					</div>
+					<div class="comment-message">
+                          
+                     </div>
+					<!--  ajax 댓글-->
+					 
+                    
 
 				</div>
 
@@ -379,5 +380,29 @@
 		</div>
 	</footer>
 
+<script>
+						
+$(".comment-input").focusin();
+
+$(document).on('click', '.create-comment-b1', function () {
+	var text = $(".comment-input").val();
+	   $.ajax({
+	    	type :"post",
+	        url : "/comment",
+	        dataType: 'json',
+	        data : {idx: text},
+	        success :function(data){
+	        	alert(text);
+	        }
+	    })
+});
+
+
+
+
+
+    
+   
+</script>
 </body>
 </html>
