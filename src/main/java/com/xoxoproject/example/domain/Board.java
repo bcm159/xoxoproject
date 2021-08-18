@@ -1,14 +1,21 @@
 package com.xoxoproject.example.domain;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 public class Board {
 
 	private int board_num;		//idx
 	private String board_date;	//날짜
 	private String board_name;	//이름
-	private String board_sub;	//제목
-	private String board_pw;	//비밀번호
-	private String board_text;	//내용
+	
+	@NotBlank
+	private String board_sub;	//제목*
+	
+	private String board_pw;	//비밀번호*
+	
+	@NotBlank
+	private String board_text;	//내용*
 	private int board_read;		//읽은 횟수
 	private String board_id;	//아이디
 	

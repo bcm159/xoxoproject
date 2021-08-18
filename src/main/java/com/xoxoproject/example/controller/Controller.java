@@ -4,12 +4,16 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -47,6 +51,8 @@ public class Controller {
 	
 	@PostMapping("/join_process")
 	public String join_process(User user) {
+		
+		
 		//비밀번호 암호화
 	    String encodedPassword = new BCryptPasswordEncoder().encode(user.getPassword());
 	    
@@ -93,7 +99,11 @@ public class Controller {
 	}
 	
 	@PostMapping("/write_process")
-	public String write_process(Board board) {
+	public String write_process(@Validated Board board,BindingResult result) {
+		if(result.hasErrors()) {
+			return "/write";
+		}
+		
 		boardservice.insertBoard(board);
 		
 		return "/board/write_process";
