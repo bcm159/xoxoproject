@@ -1,7 +1,8 @@
 package com.xoxoproject.example.domain;
 
+
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.NotNull;
 
 public class Board {
 
@@ -9,12 +10,18 @@ public class Board {
 	private String board_date;	//날짜
 	private String board_name;	//이름
 	
-	@NotBlank
+	@NotBlank(message = "제목을 입력해주세요")
 	private String board_sub;	//제목*
 	
+	@NotBlank(message = "password를 입력해주세요")
 	private String board_pw;	//비밀번호*
 	
-	@NotBlank
+	@Override
+	public String toString() {
+		return "Board [board_sub=" + board_sub + ", board_pw=" + board_pw + ", board_text=" + board_text + "]";
+	}
+	
+	@NotBlank(message = "내용을 입력해주세요")
 	private String board_text;	//내용*
 	private int board_read;		//읽은 횟수
 	private String board_id;	//아이디

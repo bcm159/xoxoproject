@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib uri="http://www.springframework.org/security/tags"
-	prefix="sec"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -345,6 +345,10 @@
 			</div>
 		</div>
 	</div>
+	
+	<div id="cmtList">
+		test comment list
+	</div>
 
 
 	<footer>
@@ -380,22 +384,37 @@
 		</div>
 	</footer>
 
-<script>
-						
-$(".comment-input").focusin();
+<script>				
+
 
 $(document).on('click', '.create-comment-b1', function () {
-	var text = $(".comment-input").val();
-	   $.ajax({
-	    	type :"post",
-	        url : "/comment",
-	        dataType: 'json',
-	        data : {idx: text},
-	        success :function(data){
-	        	alert(text);
-	        }
-	    })
+	let text = $(".comment-input").val();
+	
+	$.ajax({
+	  method: "POST",
+	  url: "/comment",
+	  data: {cm_text: text}
+	})
+	.done(function( data ) {
+		console.log(data);
+	  	$('#cmtList').html(data);
+	});
+	
+	
 });
+
+function getCommentList(){
+	let board_num = $(board.board_num).val();
+	$.jajx({
+		method:"GET",
+		url:"/comment",
+		data:{board_num : board_num}
+		})
+		.done(function( data ){
+			console.log(data);
+			$('#cmtList').html(data);
+		});
+};
 
 
 

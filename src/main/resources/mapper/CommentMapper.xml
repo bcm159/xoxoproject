@@ -17,8 +17,8 @@
     
     <insert id="commentInsert" parameterType="Comment">
         INSERT INTO
-        COMMENT (CNO, BNO, CONTENT, WRITER)
-        VALUES(#{cno},#{bno},#{content},#{writer}) 
+        COMMENT (cm_num, board_num, cm_text, cm_writer)
+        VALUES(#{cm_num},#{board_num},#{cm_text},#{cm_writer}) 
     </insert>
     
     <update id="commentUpdate" parameterType="Comment">

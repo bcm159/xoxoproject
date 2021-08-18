@@ -13,11 +13,11 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.xoxoproject.example.domain.Board;
 import com.xoxoproject.example.domain.Comment;
@@ -33,6 +33,8 @@ public class Controller {
 	@Autowired UserService userservice;
 	@Autowired BoardService boardservice;
 	@Autowired CommentService commentservice;
+	
+	String comment;
 	
 	@RequestMapping("/")
 	public String home() {
@@ -98,15 +100,17 @@ public class Controller {
 		return "/board/write";
 	}
 	
+	
 	@PostMapping("/write_process")
-	public String write_process(@Validated Board board,BindingResult result) {
+	public String write_process(@Valid Board board,BindingResult result) {
 		if(result.hasErrors()) {
-			return "/write";
+			/* logger.info(result.getAllErrors().get(0).getDefaultMessage()); */
+			return "/board/write";
 		}
 		
 		boardservice.insertBoard(board);
 		
-		return "/board/write_process";
+		return "/board";
 	}
 	
 	//읽기
@@ -118,9 +122,11 @@ public class Controller {
 	}
 	
 	@RequestMapping("/comment")
-	public String comment(@RequestParam(value="idx") String idx) {
-		System.out.println("asdfasfdsda::::");
-		System.out.println(idx);
+	public String comment(@RequestParam String cm_text,Comment comment, Model model) {
+		System.out.println(comment.getCm_text());
+		System.out.println(comment.getBoard_num());
+		
+		commentservice.commentInsert(comment);
 		return "/board/comment2";
 	}
 	
