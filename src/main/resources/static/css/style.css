@@ -902,10 +902,10 @@ address{
     transition:0.3s;
     
 }
-.create-btn:hover{
+/* .create-btn:hover{
     background: white;
     color: #dd1a32;
-}
+} */
 .create-btn-b1{}
 
 .body-btn{}

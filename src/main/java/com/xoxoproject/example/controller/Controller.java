@@ -110,7 +110,7 @@ public class Controller {
 		
 		boardservice.insertBoard(board);
 		
-		return "/board";
+		return "/board/write_process";
 	}
 	
 	//읽기
