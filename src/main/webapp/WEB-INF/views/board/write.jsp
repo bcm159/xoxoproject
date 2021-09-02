@@ -17,7 +17,7 @@
 <body>
 	<div class="container_join">
         <div class="join_box">
-        	<form:form action="/write_process" modelAttribute="board" method="post" id="writeForm">
+        	<form:form action="/board/write_process" modelAttribute="board" method="post" id="writeForm">
 	            <div class="input_box">
 	            	<sec:authorize access="isAuthenticated()">
 		               <sec:authentication property="principal" var="principal"/>
@@ -45,42 +45,7 @@
             </div>
 	            
         </div>
-<script>
-/* $(document).ready(function(){
-	$("#writeForm").validate({
-		rules:{
-			board_sub:{
-				required:true},
-			board_text:{
-				required:true},
-			board_pw:{
-				required:true}
-			},
-		message: {
-			board_sub:{
-				remote: "작성을 해야합니다."},
-			board_text:{
-				remote: "작성을 해야합니다."},
-			board_text:{
-				remote: "작성을 해야합니다."},
-			},
-		submitHandler: function(){
-			$.ajax({
-				url:"/write",
-				type:"POST",
-				dataType:"text",
-				data:$("#writeForm").serialize(),
-				.done(function( data ) {
-					alert("success")
-				});
-				error: function(){
-					alert("fail")};
-				})
-			};
-}); 
-			
-})*/
-</script>
+
 
 </body>
 </html>

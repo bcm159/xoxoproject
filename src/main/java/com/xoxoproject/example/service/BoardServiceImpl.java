@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.xoxoproject.example.domain.Board;
+import com.xoxoproject.example.domain.Comment;
 import com.xoxoproject.example.mapper.BoardMapper;
 
 @Service("BoardServiceImpl")
@@ -43,5 +44,11 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public void deleteBoard(int num) {
 		boardmapper.deleteBoard(num);
+	}
+
+	@Override
+	public List<Comment> getComment(int num) {
+		// TODO Auto-generated method stub
+		 return boardmapper.getComment(num);
 	}
 }

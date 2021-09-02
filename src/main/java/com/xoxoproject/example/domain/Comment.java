@@ -2,16 +2,16 @@ package com.xoxoproject.example.domain;
 
 public class Comment {
 
-	private int cm_num;
+	private int comment_num;
 	private int board_num;
-	private String cm_text;
-	private String cm_writer;
+	private String comment_text;
+	private String comment_writer;
 	
-	public int getCm_num() {
-		return cm_num;
+	public int getComment_num() {
+		return comment_num;
 	}
-	public void setCm_num(int cm_num) {
-		this.cm_num = cm_num;
+	public void setComment_num(int comment_num) {
+		this.comment_num = comment_num;
 	}
 	public int getBoard_num() {
 		return board_num;
@@ -19,17 +19,17 @@ public class Comment {
 	public void setBoard_num(int board_num) {
 		this.board_num = board_num;
 	}
-	public String getCm_text() {
-		return cm_text;
+	public String getComment_text() {
+		return comment_text;
 	}
-	public void setCm_text(String cm_text) {
-		this.cm_text = cm_text;
+	public void setComment_text(String comment_text) {
+		this.comment_text = comment_text;
 	}
-	public String getCm_writer() {
-		return cm_writer;
+	public String getComment_writer() {
+		return comment_writer;
 	}
-	public void setCm_writer(String cm_writer) {
-		this.cm_writer = cm_writer;
+	public void setComment_writer(String comment_writer) {
+		this.comment_writer = comment_writer;
 	}
 	
 	

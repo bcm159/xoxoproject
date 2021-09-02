@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="/js/jquery-3.5.1.min.js"></script>
 <link rel="stylesheet" href="/css/common.css">
 <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -310,16 +310,23 @@
 
 					
 					<div class="comment-box">
-						<form action="comment" method="post" onsubmit="comment__submitForm(this);">
-							<input type="text" class="comment-input" name="cm_text"> 
+						<form id="comment" action="comment" method="post">
+							<input type="text" class="comment_text" name="cm_text"> 
+							<input type="hidden" name="comment_writer" value="${board.board_name }">
 							<input type="hidden" name="board_num" value="${board.board_num }">
 							<button type="button" class="create-comment-b1">댓글</button>
 						</form>
 					</div>
-					<div class="comment-message">
-                          
-                     </div>
-					<!--  ajax 댓글-->
+					
+					<div class="comment-list">
+						<c:forEach items="${comment }" var="comment" varStatus="status">
+							<span id="comment_write">${comment.comment_writer }</span>
+                            <span id="comment_text">${comment.comment_text }</span>
+                            
+                            <button class="comment-button">수정</button>
+                            <button class="comment-button">삭제</button>
+						</c:forEach>
+					</div>
 					 
                     
 
@@ -327,16 +334,16 @@
 
 				<div class="button-box">
 					<li><button class="create-btn-b1"
-							onclick="location.href='/board'">목록</button></li>
+							onclick="location.href='/board/board'">목록</button></li>
 					<li>
-						<form action="update" method="post">
+						<form action="/board/update" method="post">
 							<input type="hidden" name="num" value="${board.board_num }">
 							<button class="create-btn-b1"
 								onclick="location.href='/board/update'">수정</button>
 						</form>
 					</li>
 					<li>
-						<form action="delete" method="post">
+						<form action="/board/delete" method="post">
 							<input type="hidden" name="num" value="${board.board_num }">
 							<button class="create-btn-b1">삭제</button>
 						</form>
@@ -386,35 +393,74 @@
 
 <script>				
 
-
-$(document).on('click', '.create-comment-b1', function () {
-	let text = $(".comment-input").val();
+$(function(){
+	let form = $("#comment");
+	let board_num = $("#board_num").val();
 	
-	$.ajax({
-	  method: "POST",
-	  url: "/comment",
-	  data: {cm_text: text}
-	})
-	.done(function( data ) {
-		console.log(data);
-	  	$('#cmtList').html(data);
+	//댓글 목록 조회 요청
+	commentList( board_num );
+	
+	//댓글 등록 버튼 클릭 이벤트
+	$(".create-comment-b1").on("click",function(){
+		let comment_writer = $("#comment_writer").val();
+		let comment_text = $("#comment_text").val();
+		
+		replyRegister(comment_num, comment_writer, comment_text);
 	});
 	
 	
 });
 
-function getCommentList(){
-	let board_num = $(board.board_num).val();
-	$.jajx({
-		method:"GET",
-		url:"/comment",
-		data:{board_num : board_num}
-		})
-		.done(function( data ){
+
+//댓글 목록 조회
+function replyList( board_num ){
+	
+	$.ajax({
+		
+		url			: '/board/comment',
+		type		: 'get',
+		data		: {
+						'board_num' : board_num
+						},
+		
+		success		: function(data){
 			console.log(data);
-			$('#cmtList').html(data);
-		});
-};
+			$(".comment-list").empty();
+			$(".comment-list").append(data);
+		},
+		
+		error		: function(xhr, status, exception){
+			
+		}
+		
+	});
+}
+
+function commentRegister(board_num, comment_writer,comment_text){
+	$.ajax({
+		url		: '/board/replyRegister',
+		type	: 'post',
+		data	: {
+					'board_num'			:	board_num,
+					'comment_writer'	:	comment_writer,
+					'comment_text'		:	comment_text
+				},
+		dataType	: 'text',
+		success		:	function(data){
+			$('.comment-list').empty();				//댓글 목록 비우기
+			$('.comment-list').append(data);		//새로운 댓글 추가
+			
+			$('.comment_write').val('');			//댓글 작성자 초기화
+			$('.comment_text').val('');			//댓글 택스트 초기화
+		},
+		
+		error:	function(xhr, status, error){
+			alert("code = " + xhr.status + "message=" + xhr.responseText + "exception = " + exception);
+		}
+		
+		
+	})	
+}
 
 
 

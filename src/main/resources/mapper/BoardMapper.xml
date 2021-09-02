@@ -54,6 +54,13 @@
 		WHERE 		board_num=#{num}
 	</update>
 	
+	<!--  댓글 가져오기-->
+	<select id="getComment" resultType="Comment">
+		SELECT		*
+		FROM		xo_comment
+		WHERE		board_num=#{num}
+	</select>
+	
 	<!--  게시글 수정 위해 글 가져오기-->
 	<select id="getUpdateBoard" resultType="Board">
 	      SELECT         	 *

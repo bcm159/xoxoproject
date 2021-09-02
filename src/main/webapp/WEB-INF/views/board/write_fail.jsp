@@ -8,7 +8,7 @@
 </head>
 <body>
 <script>
-alert('작성 완료');
+alert('로그인을 하셔야 합니다.');
 location.href = "/board/board";
 </script>
 </body>

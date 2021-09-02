@@ -9,7 +9,7 @@
 <body>
 <script>
 alert('삭제 완료');
-location.href = "/board";
+location.href = "/board/board";
 </script>
 </body>
 </html>

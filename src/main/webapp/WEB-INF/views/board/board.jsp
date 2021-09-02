@@ -295,7 +295,7 @@
               </tbody>
             </table>
             <div class="create-btn">
-               <a href="/write" class="create-btn-b1">글쓰기</a>
+               <a href="/board/write" class="create-btn-b1">글쓰기</a>
             </div>
           </div>
           <div class="body-btn">

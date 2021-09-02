@@ -105,37 +105,37 @@
 							</div>
 						</div>
 						<div class="mainmenu">
-							<a href="/hotdog">메뉴</a>
+							<a href="/menu/hotdog">메뉴</a>
 							<div class="submenu">
 								<div class="container">
 									<dl>
 										<dt>Hotdog</dt>
 										<dd>
-											<a href="/hotdog">HOTDOG</a>
+											<a href="/menu/hotdog">HOTDOG</a>
 										</dd>
 									</dl>
 									<dl>
 										<dt>Coffee</dt>
 										<dd>
-											<a href="/coffee">COFFEE</a>
+											<a href="/menu/coffee">COFFEE</a>
 										</dd>
 									</dl>
 									<dl>
 										<dt>Beverage</dt>
 										<dd>
-											<a href="#">SMOOTHIE</a>
+											<a href="/menu/beverage">SMOOTHIE</a>
 										</dd>
 										<dd>
-											<a href="#">ADE</a>
+											<a href="/menu/beverage">ADE</a>
 										</dd>
 									</dl>
 									<dl>
 										<dt>Side Menu</dt>
 										<dd>
-											<a href="#">POTATO</a>
+											<a href="/menu/sidemenu">POTATO</a>
 										</dd>
 										<dd>
-											<a href="#">FRIES</a>
+											<a href="/menu/sidemenu">FRIES</a>
 										</dd>
 									</dl>
 								</div>
@@ -217,7 +217,7 @@
 							</div>
 						</div>
 						<div class="mainmenu">
-							<a href="/board">커뮤니티</a>
+							<a href="/board/board">커뮤니티</a>
 							<div class="submenu">
 								<div class="container">
 									<dl>

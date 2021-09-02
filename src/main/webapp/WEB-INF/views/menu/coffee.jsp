@@ -43,7 +43,7 @@
         <div class="container">
           <div id="logo">
             <h1>
-              <a href="../index.html">
+              <a href="/">
                 <img src="../images/logo.png" alt="">
               </a>
             </h1>
@@ -84,26 +84,26 @@
               </div>
             </div>
             <div class="mainmenu">
-              <a href="/hotdog">메뉴</a>
+              <a href="/menu/hotdog">메뉴</a>
               <div class="submenu">
                 <div class="container">
                   <dl>
                     <dt>Hotdog</dt>
-                    <dd><a href="/hotdog">HOTDOG</a></dd>
+                    <dd><a href="/menu/hotdog">HOTDOG</a></dd>
                   </dl>
                   <dl>
                     <dt>Coffee</dt>
-                    <dd><a href="/coffee">COFFEE</a></dd>
+                    <dd><a href="/menu/coffee">COFFEE</a></dd>
                   </dl>
                   <dl>
                     <dt>Beverage</dt>
-                    <dd><a href="/beverage">SMOOTHIE</a></dd>
-                    <dd><a href="/beverage">ADE</a></dd>
+                    <dd><a href="/menu/beverage">SMOOTHIE</a></dd>
+                    <dd><a href="/menu/beverage">ADE</a></dd>
                   </dl>
                   <dl>
                     <dt>Side Menu</dt>
-                    <dd><a href="/sidemenu">POTATO</a></dd>
-                    <dd><a href="/sidemenu">FRIES</a></dd>
+                    <dd><a href="/menu/sidemenu">POTATO</a></dd>
+                    <dd><a href="/menu/sidemenu">FRIES</a></dd>
                   </dl>
                 </div>
               </div>
@@ -220,10 +220,10 @@
           <div class="btnnav">
             <button>핫도그</button>
             <ul class="btnsub">
-              <li><a href="#">Hotdog</a></li>
-              <li><a href="#">Coffee</a></li>
-              <li><a href="#">Beverage</a></li>
-              <li><a href="#">Side Menu</a></li>H
+              <li><a href="/menu/hotdog">Hotdog</a></li>
+              <li><a href="/menu/coffee">Coffee</a></li>
+              <li><a href="/menu/beverage">Beverage</a></li>
+              <li><a href="/menu/sidemenu">Side Menu</a></li>
             </ul>
           </div>
         </div>
@@ -234,10 +234,10 @@
           <h2>Coffee</h2>
         </div>
         <ul class="body-con-menu-hot clearfix">
-          <li><a href="/hotdog">Hotdog</a></li>
-          <li><a href="/coffee" class="redbutton">Coffee</a></li>
-          <li><a href="/beverage">Beverage</a></li>
-          <li><a href="/sidemenu">Side Menu</a></li>
+          <li><a href="/menu/hotdog">Hotdog</a></li>
+          <li><a href="/menu/coffee" class="redbutton">Coffee</a></li>
+          <li><a href="/menu/beverage">Beverage</a></li>
+          <li><a href="/menu/sidemenu">Side Menu</a></li>
         </ul>
         <div class="body-con-box-hot">
         	<ul>

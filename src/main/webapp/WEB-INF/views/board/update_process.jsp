@@ -9,7 +9,7 @@
 <body>
 <script>
 alert('수정 완료');
-location.href = "/board";
+location.href = "/board/board";
 </script>
 </body>
 </html>

@@ -13,7 +13,7 @@
 <body>
 <div class="container_join">
         <div class="join_box">
-        	<form action="/update_process" method="post">
+        	<form action="/board/update_process" method="post">
 	            <div class="input_box">
 	            	<sec:authorize access="isAuthenticated()">
 		               <sec:authentication property="principal" var="principal"/>
