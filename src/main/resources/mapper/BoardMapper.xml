@@ -2,15 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xoxoproject.example.mapper.BoardMapper">
 	 <select id="selectBoardList" resultType="Board">
-	      SELECT         	 board_num,
-			                 board_date,
-			                 board_name,
-			                 board_sub,
-			                 board_text,
-			                 board_read
-	      FROM            	 xo_board
+	    SELECT 			@ROWNUM := @ROWNUM - 1 AS ROWNUM,
+						ta.*
+		FROM 			xo_board ta,
+						(SELECT @rownum := (SELECT	COUNT(*)-#{pagenum}+1 FROM xo_board ta)) tb
+		ORDER BY 		board_num DESC
+		LIMIT			#{pagenum}, 5
 	 </select>
 	 
+	 <!-- 총 게시글 새기 -->
+	 <select id="countBoard" resultType="int">
+	 	SELECT 		COUNT(*) count
+		FROM 		xo_board
+	 </select>
+	  
 	 <!--  게시글 추가하기-->
 	 <insert id="insertBoard" parameterType="Board">
 		INSERT INTO xo_board(
@@ -58,8 +63,14 @@
 	<select id="getComment" resultType="Comment">
 		SELECT		*
 		FROM		xo_comment
-		WHERE		board_num=#{num}
+		WHERE		board_num=#{board_num}
 	</select>
+	
+	<!--  댓글 생성-->
+	<insert id="replyCreate">
+		INSERT INTO xo_comment (comment_num, board_num, comment_text, comment_writer)
+					VALUES		(#{comment_num},#{board_num},#{comment_text},#{comment_writer})
+	</insert>
 	
 	<!--  게시글 수정 위해 글 가져오기-->
 	<select id="getUpdateBoard" resultType="Board">

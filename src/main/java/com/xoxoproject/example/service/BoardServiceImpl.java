@@ -15,8 +15,8 @@ public class BoardServiceImpl implements BoardService{
 	@Autowired BoardMapper boardmapper;
 	
 	@Override
-	public List<Board> selectBoardList(){
-		return boardmapper.selectBoardList();
+	public List<Board> selectBoardList(int pagenum){
+		return boardmapper.selectBoardList(pagenum);
 	}
 	
 	@Override
@@ -47,8 +47,20 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public List<Comment> getComment(int num) {
+	public List<Comment> getComment(int board_num) {
 		// TODO Auto-generated method stub
-		 return boardmapper.getComment(num);
+		 return boardmapper.getComment(board_num);
+	}
+
+	@Override
+	public int countBoard() {
+		// TODO Auto-generated method stub
+		return boardmapper.countBoard();
+	}
+
+	@Override
+	public void replyRegister(Comment comment) {
+		// TODO Auto-generated method stub
+		boardmapper.replyCreate(comment);
 	}
 }

@@ -916,10 +916,10 @@ address{
   font-size: 0.9rem;
 }
 
-.body-btn button:nth-child(3){
-  background: #333;
-  color:#fff;
-  border-color: #333;
+.body-btn .b1 {
+        background: #333;
+        color: #fff;
+        border-color: #333;
 }
 
 /*board_write*/

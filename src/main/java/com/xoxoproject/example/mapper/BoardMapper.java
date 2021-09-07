@@ -9,7 +9,10 @@ import com.xoxoproject.example.domain.Comment;
 
 @Mapper
 public interface BoardMapper {
-	public List<Board> selectBoardList();
+	public List<Board> selectBoardList(int pagenum);
+	
+	//총 게시글 가져오기
+	public int countBoard();
 	
 	//게시글 추가
 	public void insertBoard(Board board);
@@ -20,7 +23,10 @@ public interface BoardMapper {
 	public void updateRead(int num);
 	
 	//댓글 가져오기
-	public List<Comment> getComment(int num);
+	public List<Comment> getComment(int board_num);
+	
+	//댓글 작성
+	public void replyCreate(Comment comment);
 	
 	//게시글 수정
 	public Board getUpdateBoard(int num);

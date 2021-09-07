@@ -247,7 +247,7 @@
         </ul>
         <div class="body-con-box">
           <div class="body-con-title">
-            <p>· Total : <b>11</b>건 <b>[1/2]</b>페이지</p>
+            <p>· Total : <b>${pagination.userCount }</b>건 <b>[</b><b>${pagination.page}</b><b>/</b><b>${pagination.lastPage} </b> <b>]</b>페이지</p>
             <div class="body-con-title-search">
               <select name="" id="">
                 <option value="">전체</option>
@@ -272,7 +272,7 @@
               <tbody>
               	<c:forEach items="${list }" var="item" varStatus="status">
                		<tr>
-               			<td>${item.board_num}</td>
+               			<td>${item.rownum}</td>
                			<td><a href="read?num=${item.board_num}">${item.board_sub}</a></td>
                			<td>${item.board_date}</td>
                			<td>${item.board_read}</td>
@@ -299,13 +299,51 @@
             </div>
           </div>
           <div class="body-btn">
-            <button>&#60;&#60;</button>
-            <button>&#60;</button>
-            <button>1</button>
-            <button>2</button>
-            <button>&#62;</button>
-            <button>&#62;&#62;</button>
-          </div>
+          	<c:choose>
+				<c:when test="${ pagination.startPage le 5 }">
+					<li style="display:none;">
+						<button>&#60;&#60;</button>
+						<button>&#60;</button>
+					</li>
+				</c:when>
+				<c:when test="${ pagination.startPage gt 5}">
+					<li style="display:inline-block;">
+						<button onclick="location.href='/board/board?page=${pagination.prevPage}'">&#60;</button>
+					</li>
+				</c:when>
+			</c:choose> 
+				
+			<c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+				<c:choose>
+					<c:when test="${ pagination.page eq i }">
+					<!--현재 페이지가 클릭한 것이랑 같은경우 -->
+						<button class="b1" onclick="location.href='/board/board?page=${i}'">${i}</button>
+							
+					</c:when>
+					<c:when test="${ pagination.page ne i }">
+					<!--현재 페이지가 클릭한 것이랑 다른경우 -->	
+						<button onclick="location.href='/board/board?page=${i}'">${i}</button>
+						
+					</c:when>
+				</c:choose>
+			</c:forEach>
+
+			<c:choose>
+				<c:when test="${ pagination.nextPage le pagination.lastPage }">
+					<li style="display:inline-block;">
+						<button onclick="location.href='/board/board?page=${pagination.nextPage}'">&#62;</button>
+						<button>&#62;&#62;</button>
+					</li>
+				</c:when>
+				<c:when test="${ pagination.nextPage gt pagination.lastPage}">
+					<li style="display:none;">
+						<button onclick="location.href='/board/board?page=${pagination.nextPage}'">&#62;</button>
+						<button>&#62;&#62;</button>
+					</li>
+				</c:when>
+			</c:choose>
+				
+           </div> 
         </div>
       </div>
     </div>

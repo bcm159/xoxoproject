@@ -9,28 +9,26 @@ public class Board {
 	private int board_num;		//idx
 	private String board_date;	//날짜
 	private String board_name;	//이름
-	
-	@NotBlank(message = "제목을 입력해주세요")
 	private String board_sub;	//제목*
-	
-	@NotBlank(message = "password를 입력해주세요")
 	private String board_pw;	//비밀번호*
-	
-	@Override
-	public String toString() {
-		return "Board [board_sub=" + board_sub + ", board_pw=" + board_pw + ", board_text=" + board_text + "]";
-	}
-	
-	@NotBlank(message = "내용을 입력해주세요")
 	private String board_text;	//내용*
 	private int board_read;		//읽은 횟수
 	private String board_id;	//아이디
+	
+	private int rownum;
+	
 	
 	private int board_groupId;
 	private int board_groupOrder;
 	private int board_groupDepth;
 	
 	
+	public int getRownum() {
+		return rownum;
+	}
+	public void setRownum(int rownum) {
+		this.rownum = rownum;
+	}
 	
 	public int getBoard_num() {
 		return board_num;

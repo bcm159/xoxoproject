@@ -6,8 +6,20 @@ import com.xoxoproject.example.domain.Board;
 import com.xoxoproject.example.domain.Comment;
 
 public interface BoardService {
-	public List<Board> selectBoardList();
+	public List<Board> selectBoardList(int pagenum);
 	
+	//총 게시글 갯수
+	/**
+	 * 총 게시글 갯수
+	 * @return 갯수
+	 * ctrl + shift + g
+	 */
+	public int countBoard();
+	/**
+	 * abcdefg
+	 * hijklm
+	 * @param board
+	 */
 	//게시글 추가
 	public void insertBoard(Board board);
 	
@@ -15,7 +27,10 @@ public interface BoardService {
 	public Board readBoardList(int num);
 	
 	//댓글 가져오기
-	public List<Comment> getComment(int num);
+	public List<Comment> getComment(int board_num);
+	
+	//댓글 쓰기
+	public void replyRegister(Comment comment);
 	
 	//게시글 수정
 	public Board getUpdateBoard(int num);

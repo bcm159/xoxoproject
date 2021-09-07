@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="/js/jquery-3.5.1.min.js"></script>
+<script src="/script/jquery-3.5.1.min.js"></script>
 <link rel="stylesheet" href="/css/common.css">
 <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -25,7 +25,13 @@
 						<li><a href="#">매장찾기</a></li>
 						<li><a href="#">가맹문의</a></li>
 						<li><a href="#">이메일문의</a></li>
-						<li><a href="sub05_login.html">로그인</a></li>
+						<sec:authorize access="isAnonymous()">
+							<li><a href="sub05_login.html">로그인</a></li>
+						</sec:authorize>
+						<sec:authorize access="isAuthenticated()">
+							<li><a href="/logout" class="logout">로그아웃</a></li>
+						</sec:authorize>
+						
 					</ul>
 					<div class="snscover">
 						<a href="#">페이스북</a> <a href="#">트위터</a> <a href="#">인스타</a> <a
@@ -37,7 +43,7 @@
 				<div class="container">
 					<div id="logo">
 						<h1>
-							<a href="../index.html"> <img src="../images/logo.png" alt="">
+							<a href="/"> <img src="../images/logo.png" alt="">
 							</a>
 						</h1>
 					</div>
@@ -306,30 +312,19 @@
 						</tbody>
 					</table>
 					<p class="text-body">${board.board_text }</p>
-
-
-					
 					<div class="comment-box">
 						<form id="comment" action="comment" method="post">
-							<input type="text" class="comment_text" name="cm_text"> 
-							<input type="hidden" name="comment_writer" value="${board.board_name }">
-							<input type="hidden" name="board_num" value="${board.board_num }">
+							<input type="text" class="comment_text" id="comment_text"> 
+							<input type="hidden" id="comment_writer" value="${board.board_name }">
+							<input type="hidden" id="board_num" value="${board.board_num }" >
 							<button type="button" class="create-comment-b1">댓글</button>
 						</form>
 					</div>
 					
 					<div class="comment-list">
-						<c:forEach items="${comment }" var="comment" varStatus="status">
-							<span id="comment_write">${comment.comment_writer }</span>
-                            <span id="comment_text">${comment.comment_text }</span>
-                            
-                            <button class="comment-button">수정</button>
-                            <button class="comment-button">삭제</button>
-						</c:forEach>
+                    <!-- 댓글 리스트 -->
 					</div>
-					 
-                    
-
+					
 				</div>
 
 				<div class="button-box">
@@ -353,9 +348,6 @@
 		</div>
 	</div>
 	
-	<div id="cmtList">
-		test comment list
-	</div>
 
 
 	<footer>
@@ -394,18 +386,21 @@
 <script>				
 
 $(function(){
+	
+	
 	let form = $("#comment");
 	let board_num = $("#board_num").val();
 	
+	
 	//댓글 목록 조회 요청
-	commentList( board_num );
+ 	replyList(board_num);
 	
 	//댓글 등록 버튼 클릭 이벤트
 	$(".create-comment-b1").on("click",function(){
 		let comment_writer = $("#comment_writer").val();
 		let comment_text = $("#comment_text").val();
 		
-		replyRegister(comment_num, comment_writer, comment_text);
+		commentRegister(board_num, comment_writer, comment_text);
 	});
 	
 	
@@ -415,6 +410,8 @@ $(function(){
 //댓글 목록 조회
 function replyList( board_num ){
 	
+	
+
 	$.ajax({
 		
 		url			: '/board/comment',
@@ -422,9 +419,11 @@ function replyList( board_num ){
 		data		: {
 						'board_num' : board_num
 						},
-		
+
+							
+						
 		success		: function(data){
-			console.log(data);
+	 		
 			$(".comment-list").empty();
 			$(".comment-list").append(data);
 		},
@@ -438,7 +437,7 @@ function replyList( board_num ){
 
 function commentRegister(board_num, comment_writer,comment_text){
 	$.ajax({
-		url		: '/board/replyRegister',
+		url		: '/board/commentRegister',
 		type	: 'post',
 		data	: {
 					'board_num'			:	board_num,
