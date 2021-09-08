@@ -76,6 +76,7 @@ public class BoardController {
 	public String comment(int board_num, Model model) throws Exception {
 
 		List<Comment> comment = boardservice.getComment(board_num);
+		
 
 		model.addAttribute("comment", comment);
 		return "/board/comment";
