@@ -981,6 +981,25 @@ address{
     color: #dd1a32;
 }
 
+.join_box .join-btn-b1{
+    border: 1px solid #ccc;
+    line-height: 40px;
+    width: 90px;
+    font-size: 16px;
+    float: right;
+    margin: 20px 15px 0 0;
+    border-radius: 5px;
+    background-color:#dd1a32;
+    color: white;
+    text-align: center;
+    transition:0.3s;
+    
+}
+.join-btn-b1:hover{
+    background: white;
+    color: #dd1a32;
+}
+
 /* read */
 .body-table .board-views {
     float: right;
@@ -1073,6 +1092,39 @@ address{
 .create-btn-b1{
     color:#fff;
     font-weight: bold;
+}
+
+.comment-list{
+    width: 1020px;
+    line-height: 50px;
+}
+.comment_writer{
+    margin-left: 20px;
+    padding-right: 10px;
+    border-right: 1px solid #ccc;
+}
+.comment_text{
+    margin-left: 10px;
+    width: 400px;
+}
+.comment-modifybtn{
+	margin-left : 20px;
+    width: 70px;
+    line-height: 30px;
+    background:  #dd1a32;
+    color:#fff;
+    font-weight: bold;
+    border-radius: 5px;
+    
+}
+.comment-deletebtn{
+    width: 70px;
+    line-height: 30px;
+    background:  #dd1a32;
+    color:#fff;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-left: 10px;
 }
 
 

@@ -302,7 +302,6 @@
           	<c:choose>
 				<c:when test="${ pagination.startPage le 5 }">
 					<li style="display:none;">
-						<button>&#60;&#60;</button>
 						<button>&#60;</button>
 					</li>
 				</c:when>
@@ -332,13 +331,11 @@
 				<c:when test="${ pagination.nextPage le pagination.lastPage }">
 					<li style="display:inline-block;">
 						<button onclick="location.href='/board/board?page=${pagination.nextPage}'">&#62;</button>
-						<button>&#62;&#62;</button>
 					</li>
 				</c:when>
 				<c:when test="${ pagination.nextPage gt pagination.lastPage}">
 					<li style="display:none;">
 						<button onclick="location.href='/board/board?page=${pagination.nextPage}'">&#62;</button>
-						<button>&#62;&#62;</button>
 					</li>
 				</c:when>
 			</c:choose>

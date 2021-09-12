@@ -96,6 +96,32 @@ public class BoardController {
 
 		return "/board/comment";
 	}
+	
+	//댓글 수정
+	@PostMapping("/commentModify")
+	public String replyRegister(Model model, Comment comment) throws Exception{
+		Integer board_num = comment.getBoard_num();
+		
+		boardservice.replyModify(comment);
+		//갱신된 댓글 목록 요청
+		List<Comment> replyList = boardservice.getComment(board_num);
+		model.addAttribute("comment",replyList);
+		return "/board/comment";
+	}
+	
+	//댓글 삭제
+	@PostMapping("/replyRemove")
+	public String replyRemove(Model model,Comment comment) throws Exception{
+		int board_num = comment.getBoard_num();
+		int comment_num = comment.getComment_num();
+		//댓글 삭제 요청
+		boardservice.replyRemove(comment_num);
+		System.out.println("AAA");
+		//갱신된 댓글 목록 요청
+		List<Comment> replyList = boardservice.getComment(board_num);
+		model.addAttribute("comment",replyList);
+		return "/board/comment";
+	}
 
 	// 수정
 	@PostMapping("/update")

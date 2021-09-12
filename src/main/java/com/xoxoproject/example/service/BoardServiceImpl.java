@@ -63,4 +63,16 @@ public class BoardServiceImpl implements BoardService{
 		// TODO Auto-generated method stub
 		boardmapper.replyCreate(comment);
 	}
+
+	@Override
+	public void replyModify(Comment comment) {
+		// TODO Auto-generated method stub
+		boardmapper.replyUpdate(comment);
+	}
+
+	@Override
+	public void replyRemove(int comment_num) {
+		// TODO Auto-generated method stub
+		boardmapper.replyRemove(comment_num);
+	}
 }

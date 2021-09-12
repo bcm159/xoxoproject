@@ -32,6 +32,12 @@ public interface BoardService {
 	//댓글 쓰기
 	public void replyRegister(Comment comment);
 	
+	//댓글 수정
+	public void replyModify(Comment comment);
+	
+	//댓글 삭제
+	public void replyRemove(int comment_num);
+	
 	//게시글 수정
 	public Board getUpdateBoard(int num);
 	public void updateBoardProcess(Board board);
