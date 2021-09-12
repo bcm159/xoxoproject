@@ -30,14 +30,16 @@
 * 게시판 
   * CRUD
   * Pagination
-  * ajax이용하여 댓글 구현(진행 중)
+  * ajax이용하여 댓글 구현
+
 ![write](https://user-images.githubusercontent.com/65888101/132172467-f7710fc4-3d42-421a-bf2d-f600d8f1019c.png)
 
 ![paging](https://user-images.githubusercontent.com/65888101/132172498-5a8b4743-f6d4-441c-99bf-dd2dd16b3392.png)
 
-![read](https://user-images.githubusercontent.com/65888101/132172523-897d362a-7fb1-4d1e-8073-ace460cd9856.png)
+![read,comment](https://user-images.githubusercontent.com/65888101/132977221-d11eb272-2190-47bf-88dc-3b13a18e944d.png)
 
 * 앞으로 계획
   * 장바구니
   * 리뷰
+  
 
